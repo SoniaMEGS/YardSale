@@ -1,0 +1,20 @@
+:root{
+    --very-ligth-pink: #c7c7c7;
+    --text-imput-field: #F7F7F7;
+    --hospital-green: #ACD9B2;
+    --white: #FFFFFF;
+    --black: #000000;
+    --dark: #232830;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Quicksand', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
+}
