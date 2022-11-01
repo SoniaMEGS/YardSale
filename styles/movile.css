@@ -5,6 +5,9 @@
     --white: #FFFFFF;
     --black: #000000;
     --dark: #232830;
+    --font-small: 1.4rem;
+    --font-medium: 1.6rem;
+    --font-large: 1.8rem;
 }
 *{
     box-sizing: border-box;
@@ -17,4 +20,69 @@ html{
 body{
     font-family: 'Quicksand', sans-serif;
     /*font-family: 'Roboto', sans-serif;*/
+}
+
+/*New password HTML*/
+.logIn{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    /*Con display: grid y place-items:center puedes centrar elementos en vertical y horizontal al mismo tiempo*/  
+}
+.logIn-formContainer{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 28.0rem;
+}
+.logo{
+    width: 15rem;
+    height: auto;
+    margin-bottom: 4.8rem;
+    justify-self: center;
+}
+.title{
+    font-size: var(--font-large);
+    margin-bottom: 1.2rem;
+    text-align: center;
+}
+.subtitle{
+    color: var(--very-ligth-pink);
+    font-size: var(--font-medium);
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 3.2rem;
+    text-align: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.form-label{
+    font-size: var(--font-small);
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+}
+.inputPassword{
+    background-color: var(--text-imput-field);
+    border: none;
+    border-radius: 0.8rem;
+    height: 3.2rem;
+    font-size: var(--font-medium);
+    padding: 0.4rem;
+    margin-bottom: 1.2rem;
+}
+.primaryButton{
+    background-color: var(--hospital-green);
+    border-radius: 0.8rem;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    height: 4.8rem;
+    cursor: pointer;
+    font-size: var(--font-medium);
+}
+.loginButton{
+    margin-top: 1.6rem;
+    margin-bottom: 3.2rem;
 }
