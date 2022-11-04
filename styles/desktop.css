@@ -1,3 +1,7 @@
 .logo{
     display: none;
 }
+.signUpButton{
+    top: 4rem;
+    margin-bottom: 3.2rem;
+}
