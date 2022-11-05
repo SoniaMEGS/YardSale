@@ -31,9 +31,11 @@ body{
     /*Con display: grid y place-items:center puedes centrar elementos en vertical y horizontal al mismo tiempo*/  
 }
 .mainContent_container{
-    display: grid;
+    display: flex;
     width: 28.0rem;
-    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .logo{
     width: 15rem;
@@ -64,7 +66,8 @@ body{
     font-weight: bold;
     margin-bottom: 0.4rem;
 }
-.inputPassword{
+
+.form-input{
     background-color: var(--text-imput-field);
     border: none;
     border-radius: 0.8rem;
@@ -114,14 +117,17 @@ body{
 }
 
 /*Login*/
-.inputEmail {
-    background-color: var(--text-imput-field);
-    border: none;
-    border-radius: 0.8rem;
-    height: 3.2rem;
-    font-size: var(--font-medium);
-    padding: 0.4rem;
-    margin-bottom: 1.2rem;
+.mainContent_containerSpace{
+    height: 100%;
+    justify-content: space-between;
+    padding-top: 12rem;
+    padding-bottom: 2.4rem;
+}
+.mainContent_containerSpace div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .forgot a{
     color: var(--hospital-green);
@@ -138,8 +144,28 @@ body{
     cursor: pointer;
     font-size: var(--font-medium);
 }
-.signUpButton{
-    margin-bottom: 3.2rem;
-    position: relative;
-    top: 14rem;
+
+/*Create account*/
+.mainContent_containerUp{
+    height: 100%;
 }
+.titleLeft{
+    width: 100%;
+    height: 2rem;
+    text-align: left;
+    margin-bottom: 3.2rem;
+    margin-top: 3.2rem;
+}
+.formSpace{
+    height: 100%;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+}
+.formSpace div{
+    display: flex;
+    flex-direction: column;
+}
+.inputName, .inputEmail, .inputPassword{
+    margin-bottom: 2.4rem;
+}
+
