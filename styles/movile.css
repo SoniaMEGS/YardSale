@@ -169,3 +169,10 @@ body{
     margin-bottom: 2.4rem;
 }
 
+/*My account*/
+.value{
+    color: var(--very-ligth-pink);
+    margin-top: 1.2rem;
+    margin-bottom: 3.2rem;
+    font-size: var(--font-medium);
+}
