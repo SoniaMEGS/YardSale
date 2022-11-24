@@ -18,3 +18,15 @@
 .formSpace{
     justify-content: flex-start;
 }
+
+/*Home*/
+.cardsContainer{
+    grid-template-columns: repeat(auto-fill, 24rem);
+}
+.productCard{
+    width: 24rem;
+}
+.productCard .productImg{
+    height: 24rem;
+}
+
