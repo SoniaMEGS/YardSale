@@ -30,3 +30,33 @@
     height: 24rem;
 }
 
+/*Collapsible menu*/
+.desktopMenu{
+    width: 15rem;
+    height: auto;
+    border: 0.1rem solid var(--very-ligth-pink);
+    border-radius: 0.8rem;
+    padding-right: 1.6rem;
+    padding-left: 1.6rem;
+}
+.desktopMenu ul{
+    list-style: none;
+}
+.desktopMenu ul li{
+    text-align: end;
+}
+.desktopMenu ul li:last-child{
+    border-top: 0.1rem solid var(--very-ligth-pink);
+}
+.desktopMenu ul li a{
+    display: inline-block;
+    color: var(--black);
+    text-decoration: none;
+    font-size: var(--font-small);
+    font-weight: bold;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+.desktopMenu ul li:last-child a{
+    color: var(--hospital-green);
+}
