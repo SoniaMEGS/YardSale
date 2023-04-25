@@ -30,11 +30,16 @@
     height: 24rem;
 }
 
+/*Menu*/
+.mobileMenu{
+    display: none;
+}
+
 /*Collapsible menu*/
 .desktopMenu{
     display: block;
     position: absolute;
-    top: 4.4rem;
+    top: 6rem;
     right: 6rem;
     width: 15rem;
     height: auto;

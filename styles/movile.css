@@ -218,12 +218,15 @@ a{
 
 /*Menu*/
 .mobileMenu{
+    position: absolute;
+    top: 6rem;
+    background-color: var(--white);
     padding-right: 1.6rem;
     padding-left: 1.6rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    height: 90vh;
 }
 .mobileMenu ul{
     list-style: none;
@@ -252,6 +255,9 @@ a{
     color: var(--hospital-green);
     font-weight: 400;
     margin-top: 0.8rem;
+}
+.inactive{
+    display: none;
 }
 
 /*My order*/
