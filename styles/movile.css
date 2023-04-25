@@ -323,6 +323,11 @@ a{
 margin-left: 30%;
 }
 
+/*Desktop menu*/
+.desktopMenu{
+    display: none;
+}
+
 /*Nav bar*/
 header{
     width: 100vw;
@@ -445,6 +450,7 @@ nav{
     position: absolute;
     bottom: 0;
     width: 28rem;
+    padding-bottom: 1rem;
 }
 .myOrderMainContainer-total p{
     display: flex;

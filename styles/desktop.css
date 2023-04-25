@@ -32,8 +32,13 @@
 
 /*Collapsible menu*/
 .desktopMenu{
+    display: block;
+    position: absolute;
+    top: 4.4rem;
+    right: 6rem;
     width: 15rem;
     height: auto;
+    background-color: var(--white);
     border: 0.1rem solid var(--very-ligth-pink);
     border-radius: 0.8rem;
     padding-right: 1.6rem;
@@ -59,6 +64,9 @@
 }
 .desktopMenu ul li:last-child a{
     color: var(--hospital-green);
+}
+.inactive{
+    display: none;
 }
 
 /*My order*/
@@ -115,6 +123,7 @@
 }
 .navRight li span{
     font-size: var(--font-small);
+    cursor: pointer;
 }
 .navRight li:nth-child(2) span{
     bottom: 1.2rem;
@@ -126,6 +135,7 @@
 .navRight li:nth-child(1) img{
     margin-left: 10px;
     transform: rotate(90deg);
+    cursor: pointer;
 }
 
 /*Product details*/
@@ -154,6 +164,7 @@
 }
 .shoppingCartContent{
     place-items: start end;
+    padding-right: 1.2rem;
 }
 .myOrderMainContainer-total{
     width: 40rem;
