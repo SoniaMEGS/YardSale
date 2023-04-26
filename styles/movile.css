@@ -226,7 +226,7 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 90vh;
+    height: calc(100vh - 6rem);
 }
 .mobileMenu ul{
     list-style: none;
@@ -437,6 +437,8 @@ nav{
 /*Shopping cart*/
 .shoppingCartContent{
     place-items: start center;
+    height: calc(100vh - 6rem);
+    background-color: var(--white);
 }
 .titleContainer figure{
     display: none;
