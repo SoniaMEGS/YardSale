@@ -189,6 +189,7 @@ a{
     display: grid;
     grid-template-columns: repeat(auto-fill, 14rem);
     gap: 2.4rem;
+    margin-top: 2.4rem;
     place-content: center;
 }
 .productCard{
