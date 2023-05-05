@@ -146,6 +146,10 @@
 /*Product details*/
 
 .mainContentDetails{
+    position: absolute;
+    right: 0rem;
+    height: calc(100vh - 6rem);
+    width: 40rem;
     place-items: start end;
 }
 .productImgContainer .productImgDetails{

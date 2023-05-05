@@ -220,6 +220,7 @@ a{
 /*Menu*/
 .mobileMenu{
     position: absolute;
+    right: 0;
     top: 6rem;
     background-color: var(--white);
     padding-right: 1.6rem;
@@ -228,6 +229,7 @@ a{
     flex-direction: column;
     justify-content: space-between;
     height: calc(100vh - 6rem);
+    width: 100vw;
 }
 .mobileMenu ul{
     list-style: none;
@@ -372,6 +374,7 @@ nav{
 
 .mainContentDetails{
     place-items: start center ;
+    background-color: var(--white);
 }
 .mainContentDetails_container{
     position: absolute;
