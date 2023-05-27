@@ -5,6 +5,7 @@ const menuEmail = document.querySelector('.navEmail');
 const desktopMenu = document.querySelector('.desktopMenu');
 const shoppingCartIcon = document.querySelector('.navShoppingCart');
 const shoppingCart = document.querySelector('.shoppingCartContent');
+const shoppingCartCard = document.querySelector('.mainContainer-shoppingCart')
 const productDetail = document.querySelector('.mainContentDetails');
 const closeProductDetail =  document.querySelector('.closeProductDetailContainer');
 const cardContainer = document.querySelector('.cardsContainer');
@@ -124,7 +125,7 @@ function closeProductDetailAside(){
     productDetail.classList.add('inactive');
 }
 
-// Función para poner los datos del producto seleccionado en la ventana de Detalles
+// Función para poner los datos del producto seleccionado en el aside de detalles.
 const detailsProduct = product => {
     console.log(product)
     openProductDetailAside();
@@ -139,6 +140,39 @@ const detailsProduct = product => {
     detailName.innerText = product.name;
     detailDescription.innerText = product.description;
 };
+
+function addToShoppingCart(product){
+    console.log(product)
+
+    let shoppingCartCards = document.createElement('article');
+    
+        let shoppingCartFigure = document.createElement('figure');
+
+            let shoppingCartimage = document.createElement('img');
+            shoppingCartimage.setAttribute('src', product.image);
+            shoppingCartimage.setAttribute('alt', product.name);
+            let shoppingCartfigcaption = document.createElement('figcaption');
+            shoppingCartfigcaption.innerText = product.name;
+        
+        shoppingCartFigure.append(shoppingCartimage, shoppingCartfigcaption)
+
+        let shoppingCartDivContainer = document.createElement('div');
+
+            let shoppingCartProductP = document.createElement('p');
+                let shoppingCartProductPrice = document.createElement('span');
+                shoppingCartProductPrice.innerText = '$' + product.price;
+            shoppingCartProductP.append(shoppingCartProductPrice);
+
+            let shoppingCartCloseFigure = document.createElement('figure');
+                let shoppingCartCloseImage = document.createElement('img');
+                shoppingCartCloseImage.setAttribute('src', './img/icons/icon_close.png');
+                shoppingCartCloseImage.classList.add('deleteImg');
+            shoppingCartCloseFigure.append(shoppingCartCloseImage);
+
+        shoppingCartDivContainer.append(shoppingCartProductP, shoppingCartCloseFigure);       
+    shoppingCartCards.append(shoppingCartFigure, shoppingCartDivContainer);
+shoppingCartCard.append(shoppingCartCards);
+}
 
 // ↓ Esta funcion se creo para manipular el DOM desde JS, evitando asi escribir en el HTML de forma manual cada uno de los elemntos que se encontraran a la venta.
 function renderProducts(arreglo){
@@ -171,7 +205,9 @@ function renderProducts(arreglo){
                 let productInformationFigure= document.createElement('figure');
                     let imgCartIcon = document.createElement('img');
                     imgCartIcon.setAttribute('src', './img/icons/bt_add_to_cart.svg');
-    
+                    imgCartIcon.addEventListener('click', () => {
+                        addToShoppingCart(product);
+                    });
                 productInformationFigure.appendChild(imgCartIcon);
     
             productInformation.append(productInformationDiv, productInformationFigure);
