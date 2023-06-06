@@ -4,8 +4,10 @@ const mobileMenu = document.querySelector('.mobileMenu');
 const menuEmail = document.querySelector('.navEmail');
 const desktopMenu = document.querySelector('.desktopMenu');
 const shoppingCartIcon = document.querySelector('.navShoppingCart');
+const shoppingCartQuantity =document.querySelector('.itemQuantity');
 const shoppingCart = document.querySelector('.shoppingCartContent');
-const shoppingCartCard = document.querySelector('.mainContainer-shoppingCart')
+const shoppingCartCard = document.querySelector('.mainContainer-shoppingCart');
+const ShoppingCartTotalPrice = document.querySelector('.totalPrice');
 const productDetail = document.querySelector('.mainContentDetails');
 const closeProductDetail =  document.querySelector('.closeProductDetailContainer');
 const cardContainer = document.querySelector('.cardsContainer');
@@ -16,6 +18,9 @@ closeContainers.addEventListener('click', toggleMobileMenu);
 menuEmail.addEventListener('click', toggleDesktopMenu);
 shoppingCartIcon.addEventListener('click', toggleShoppingCart);
 closeProductDetail.addEventListener('click', closeProductDetailAside);
+
+// ↓ Array para almacenar los precios de los productos que se graguen al shopping cart.
+let productsTotalPrice = [];
 
 // ↓ Este es un array vacio que va contener la lista de productos que se van a vender en la pg web, estos van a entrar al array por medio de un push de objetos. 
 let productList = [];
@@ -125,7 +130,7 @@ function closeProductDetailAside(){
     productDetail.classList.add('inactive');
 }
 
-// Función para poner los datos del producto seleccionado en el aside de detalles.
+//↓ Función para poner los datos del producto seleccionado en el aside de detalles.
 const detailsProduct = product => {
     console.log(product)
     openProductDetailAside();
@@ -134,13 +139,25 @@ const detailsProduct = product => {
     const detailPrice = document.querySelector('.productInformation p:nth-child(1)');
     const detailName = document.querySelector('.productInformation p:nth-child(2)');
     const detailDescription = document.querySelector('.productInformation p:nth-child(3)');
+    //const detailAddToCartButton = document.querySelector('.addToCartButton')
 
     detailImage.setAttribute('src', product.image);
     detailPrice.innerText = `$${product.price}`;
     detailName.innerText = product.name;
     detailDescription.innerText = product.description;
+    /*detailAddToCartButton.addEventListener('click', () => {
+        addToShoppingCart(product);
+    });*/
 };
 
+// ↓ Esta funcion suma los precios de todos los productos agregados al shopping cart.
+const sumOfPrices = arr => {
+    let total = 0;
+    arr.forEach(product => (total += product));
+    return total;
+};
+
+//↓ Esta funcion agrega productos productos al carrito de compras y contiene otra funcion que remueve los productos del carrito de compras.
 function addToShoppingCart(product){
     console.log(product)
 
@@ -167,16 +184,36 @@ function addToShoppingCart(product){
                 let shoppingCartCloseImage = document.createElement('img');
                 shoppingCartCloseImage.setAttribute('src', './img/icons/icon_close.png');
                 shoppingCartCloseImage.classList.add('deleteImg');
+                shoppingCartCloseImage.addEventListener('click', removeOfShoppingCart)
             shoppingCartCloseFigure.append(shoppingCartCloseImage);
 
         shoppingCartDivContainer.append(shoppingCartProductP, shoppingCartCloseFigure);       
     shoppingCartCards.append(shoppingCartFigure, shoppingCartDivContainer);
 shoppingCartCard.append(shoppingCartCards);
+
+// ↓ Esta linea cuenta la cantidad de elementos tentro de la etiqueta shoppingCartCard, y el resultado lo pone como numero de items agregados al shopping cart
+shoppingCartQuantity.innerText = shoppingCartCard.childElementCount;
+
+// ↓ Estas lineas agregan un nuevo elemento al array y acctualizan el precio total.
+productsTotalPrice.push(product.price);
+ShoppingCartTotalPrice.innerText = `$${sumOfPrices(productsTotalPrice)}`;
+
+// ↓ funcion que remueve los productos del carrito de compras, con el metodo ".remove()".
+function removeOfShoppingCart () {
+    shoppingCartCards.remove();
+
+    shoppingCartQuantity.innerText = shoppingCartCard.childElementCount;
+
+    productsTotalPrice.push(product.price - product.price * 2);
+    ShoppingCartTotalPrice.innerText = `$${sumOfPrices(productsTotalPrice)}`;
+}
+
 }
 
 // ↓ Esta funcion se creo para manipular el DOM desde JS, evitando asi escribir en el HTML de forma manual cada uno de los elemntos que se encontraran a la venta.
 function renderProducts(arreglo){
     // ↓ Este for nos dice que para cada elemento del arreglo que entra a la funcion se va a crear un codigo HTML desde JS que queda posicionado dentro de una etiqueta que ya existe en el index.html
+    // ↓ Tambien cuenta las entradas al array para identificar el indice de cada elemento.
     for (const [index, product] of arreglo.entries()) {
         // ↓ En las siquientes dos lineas se expresa lo siquiente: 1.- Se crea una variable  cuyo argumento es la creacion de una etiqueta de HTML "div". 2.- A esa etiqueta creada  se le agrega una clase, en este caso la clase productCard.
         let productCards = document.createElement('div');
